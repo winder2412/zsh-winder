@@ -85,8 +85,6 @@ alias py='python'
 alias wlogout='./.wlogout/build/wlogout'
 alias hypr='vim ~/.config/hypr/hyprland.conf'
 alias swayc='vim ~/.config/sway/config'
-alias PC='sshpass -p 121597Mw@@ ssh root@fria.winder.store -p 2412'
-alias PC='ssh winder@192.168.1.1'
 
 gitpush() {
     git add .
