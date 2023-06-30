@@ -43,8 +43,8 @@ bindkey '^ ' autosuggest-accept
 [ -f "/home/winder/.config/zsh/aliasrc" ] && source "/home/winder/.config/zsh/aliasrc"
 
 # Load ; should be last.
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/.config/zsh/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/autojump/autojump.zsh 2>/dev/null
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$PATH:/usr/local/protobuf/bin

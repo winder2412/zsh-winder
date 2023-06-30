@@ -1,18 +1,19 @@
 #!/bin/bash
 ##installing the needed packeges
-ISYAY=/sbin/yay
-if [ -f "$ISYAY" ]; then 
-    echo -e "yay was located, moving on.\n"
-    yay -Suy
-else 
-    git clone https://aur.archlinux.org/yay-bin
-    cd yay-bin
-    makepkg -si
-    yay --version
-    cd ..
+if command -v apt >/dev/null 2>&1; then
+	sudo apt update
+	sudo apt install -y zsh git
+elif command -v yay >/dev/null 2>&1; then
+	yay -Sy --noconfirm zsh git
+elif command -v dnf >/dev/null 2>&1; then
+	sudo dnf install -y zsh git
+else
+	echo "None of the required package managers (apt, yay, dnf) are available."
+	exit 1
 fi
-yay -S --noconfirm zsh zsh-syntax-highlighting autojump zsh-autosuggestions git 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/zsh/powerlevel10k
-##copy the config file
-cp -rf ./zsh ~/.config/zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ./zsh/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./zsh/.zsh/zsh-syntax-highlighting
+#copy the config file
+cp -rf ./zsh ~/.config/
 cp -f ./.zshenv ~
